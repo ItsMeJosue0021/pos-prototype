@@ -21,7 +21,7 @@ export default function Home() {
              <p className="text-center font-medium text-gray-500">Our POS app offers a comprehensive suite of features that streamline your operations and empower you to take control.</p>
           </div>
 
-          <div className="fixed bottom-0 left-0 right-0 p-4 pb-8 shadow-md">
+          <div className="w-full mt-8 p-4 pb-8">
               <Link href="/pos" className="w-full bg-red-700 text-white font-semibold py-3 rounded-xl transition-all duration-300 flex items-center justify-center gap-2">
                   Get Started
               </Link>
