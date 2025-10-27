@@ -6,7 +6,7 @@ const PointOfSale = () => {
     return (
         <div className="flex min-h-screen bg-zinc-50 font-sans dark:bg-black">
             <main className="w-full flex items-start gap-4 ">
-                <div className="w-full gap-6 px-4">
+                <div className="w-full gap-6">
                     <PointOfSaleHome/>
                 </div>
                 {/* <div className="w-full md:w-80">

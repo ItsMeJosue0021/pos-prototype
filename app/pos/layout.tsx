@@ -6,7 +6,7 @@ export default function PointOfSaleLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex flex-col max-h-screen font-sans bg-zinc-50 dark:bg-black">
+    <div className="flex flex-col h-screen font-sans bg-zinc-50 dark:bg-black">
         <PointOfSaleHeader />
         {children}
     </div>
