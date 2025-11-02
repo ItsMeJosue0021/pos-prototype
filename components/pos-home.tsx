@@ -10,7 +10,7 @@ import CategoryCard from "./category-card";
 import { GoArrowRight } from "react-icons/go";
 
 type Props = {
-    openCart: () => void;
+    openCart?: () => void;
 };
 
 const PointOfSaleHome = ({ openCart }: Props) => {
@@ -37,7 +37,7 @@ const PointOfSaleHome = ({ openCart }: Props) => {
 
             <div className="py-2">
                 <h1 className="mb-2 px-4">Categories</h1>
-                <div className="flex items-start gap-2 overflow-x-auto p-1 px-4">
+                <div className="flex items-start gap-2 overflow-x-auto p-1 px-4 hide-scrollbar">
                     <CategoryCard icon={<MdOutlineFavorite />} label="Favorites" />
                     <CategoryCard icon={<GiShrimp />} label="Seafood" />
                     <CategoryCard icon={<TbMeat />} label="Meaty" />
@@ -47,15 +47,15 @@ const PointOfSaleHome = ({ openCart }: Props) => {
             </div>
 
             <h1 className="mb-2 px-4">Items</h1>
-            <div className="flex-1 overflow-y-auto px-4 pb-28">
-                    <div className="flex flex-col space-y-2">
+            <div className="flex-1 overflow-y-auto px-4 pb-28 hide-scrollbar">
+                <div className="flex flex-col md:flex-row flex-wrap space-y-2 md:space-0 md:gap-3 md:p-2">
                     {menuItems.map((item, index) => (
                         <MenuItemCard key={index} item={item} index={index} />
                     ))}
                 </div>
             </div>
 
-            <div className="fixed bottom-0 left-0 right-0 bg-transparent p-4  shadow-md">
+            <div className="md:hidden fixed bottom-0 left-0 right-0 bg-transparent p-4  shadow-md">
                 <button 
                     onClick={openCart}
                     className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-4 rounded-3xl transition-all duration-300 flex items-center justify-between">

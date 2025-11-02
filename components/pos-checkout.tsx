@@ -81,18 +81,6 @@ const PosCheckout = ({ setTab }: Props) => {
             </button>
 
             <button
-              onClick={() => setPaymentMethod("card")}
-              className={`flex flex-col items-center p-3 border rounded-lg ${
-                paymentMethod === "card"
-                  ? "border-red-500 bg-red-50 text-red-600"
-                  : "border-gray-200 text-gray-600"
-              }`}
-            >
-              <FaCreditCard size={20} />
-              <span className="text-xs mt-1">Card</span>
-            </button>
-
-            <button
               onClick={() => setPaymentMethod("gcash")}
               className={`flex flex-col items-center p-3 border rounded-lg ${
                 paymentMethod === "gcash"

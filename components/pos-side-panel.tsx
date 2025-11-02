@@ -16,7 +16,7 @@ const PosSidePanel = ({ backToMenu }: Props) => {
     const [tab, setTab] = useState<'cart' | 'checkout' | 'receipt'>('cart');
 
     return (
-        <div className="px-4 bg-white">
+        <div className="h-screen px-4 bg-white">
             {tab === 'cart' ? (
                 <PosCart 
                     backToMenu={backToMenu}

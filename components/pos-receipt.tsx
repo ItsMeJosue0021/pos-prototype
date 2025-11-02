@@ -1,5 +1,6 @@
 "use client";
 
+import useMediaQuery from "@/hooks/useMediaQuery";
 import { CheckCircle } from "lucide-react";
 import Link from "next/link";
 
@@ -9,8 +10,9 @@ type Props = {
 
 const PosReceipt = ({ backToMenu }: Props) => {
 
+    const isDesktop = useMediaQuery("(min-width: 768px)");
+
     const handleDownload = () => {
-        // Placeholder for receipt download logic
         alert("Downloading receipt...");
     };
 
@@ -61,12 +63,19 @@ const PosReceipt = ({ backToMenu }: Props) => {
                         Download Receipt
                     </button>
 
-                    <div
-                        onClick={backToMenu}
-                        className="w-full text-center py-2 bg-red-600 text-white font-medium rounded-3xl hover:bg-red-600 transition"
-                    >
-                        Start New Order
-                    </div>
+                    {isDesktop ? (
+                        <div className="w-full text-center py-2 bg-red-600 text-white font-medium rounded-3xl hover:bg-red-700 transition">
+                            Done
+                        </div>
+                    ) : (
+                        <div
+                            onClick={backToMenu}
+                            className="w-full text-center py-2 bg-red-600 text-white font-medium rounded-3xl hover:bg-red-700 transition"
+                        >
+                            Start New Order
+                        </div>
+                    )}
+                    
                 </div>
             </div>
         </div>

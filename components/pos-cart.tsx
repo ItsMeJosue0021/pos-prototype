@@ -9,10 +9,10 @@ type Props = {
 
 const PosCart = ({ backToMenu, setTab }: Props) => {
     return (
-        <div className="h-screen flex flex-col pt-4">
+        <div className="relative h-screen flex flex-col pt-4">
             <div 
                 onClick={backToMenu} 
-                className="flex items-center justify-start gap-2 mb-4 px-3 pr-4 p-1 rounded-3xl bg-red-600 w-fit">
+                className="md:hidden flex items-center justify-start gap-2 mb-4 px-3 pr-4 p-1 rounded-3xl bg-red-600 w-fit">
                 <GoArrowLeft   
                     size={22} 
                     className="text-white" 
@@ -29,7 +29,7 @@ const PosCart = ({ backToMenu, setTab }: Props) => {
                 </div>
             </div>
 
-            <div className="fixed bottom-0 left-0 right-0 bg-zinc-50 p-4 flex flex-col gap-4 shadow-md ">
+            <div className="fixed md:absolute bottom-0 left-0 right-0 bg-zinc-50 p-4 flex flex-col gap-4 shadow-md ">
                 <div className="h-32 w-full p-2 border-2 border-dashed border-gray-200 rounded-xl flex flex-col gap-1">
                     <h2 className="font-semibold text pb-1 border-b-2 border-dashed">Summary</h2>
                     <div className="w-full flex items-center justify-between mt-1">
