@@ -29,7 +29,7 @@ const MenuItemCard = ({item, index, isUsedInSidePanel}: Props) => {
                     <p className="text-sm font-semibold text-red-500 mt-1">₱{isUsedInSidePanel ? item.menu.price : item.price}</p>
                 </div>
                 {isUsedInSidePanel && (
-                    <div onClick={() => removeFromCart(item.menu.id)} className="absolute top-0 right-0">
+                    <div onClick={() => removeFromCart(item.menu.id)} className="absolute top-0 right-0 cursor-pointer">
                         <IoMdClose size={20} className="text-gray-300 hover:text-red-500" />
                     </div>
                 )}
@@ -49,9 +49,9 @@ const MenuItemCard = ({item, index, isUsedInSidePanel}: Props) => {
                     <div className="w-full">
                         <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Quantity:</p>
                         <div className="flex items-center justify-start gap-4">
-                            <CiCircleMinus onClick={() => updateQuantity(item.menu.id, item.quantity-1)} size={30} className="text-gray-400 hover:text-red-500 transform transition-all duration-500"/>
+                            <CiCircleMinus onClick={() => updateQuantity(item.menu.id, item.quantity-1)} size={30} className="text-gray-400 hover:text-red-500 transform transition-all duration-500 cursor-pointer"/>
                             <p className="text-lg">{item.quantity}</p>
-                            <CiCirclePlus onClick={() => updateQuantity(item.menu.id, item.quantity+1)} size={30} className="text-gray-400 hover:text-red-500 transform transition-all duration-500"/>
+                            <CiCirclePlus onClick={() => updateQuantity(item.menu.id, item.quantity+1)} size={30} className="text-gray-400 hover:text-red-500 transform transition-all duration-500 cursor-pointer"/>
                         </div>
                     </div>
                 </div>

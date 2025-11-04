@@ -14,6 +14,9 @@ const PosReceipt = ({ backToMenu, setTab }: Props) => {
 
     const isDesktop = useMediaQuery("(min-width: 768px)");
 
+    const { cart, getTotalPrice } = useCart();
+    const totalPrice: number = getTotalPrice();
+
     const handleDownload = () => {
         alert("Downloading receipt...");
     };
@@ -43,17 +46,15 @@ const PosReceipt = ({ backToMenu, setTab }: Props) => {
                     </div>
 
                     <div className="mt-4 border-t border-gray-100 pt-3">
-                        <div className="flex justify-between text-sm mb-1">
-                            <span>Takoyaki (Octopus)</span>
-                            <span>₱150</span>
-                        </div>
-                        <div className="flex justify-between text-sm mb-1">
-                            <span>Kaniyaki (Crab Stick)</span>
-                            <span>₱160</span>
-                        </div>
+                        {cart.map((item, index) => (
+                            <div key={index} className="flex justify-between text-sm mb-1">
+                                <span>{item.menu.name}</span>
+                                ₱{(item.quantity * item.menu.price).toFixed(2)}
+                            </div>
+                        ))}
                         <div className="flex justify-between text-sm font-semibold border-t border-gray-200 mt-2 pt-2">
                             <span>Total</span>
-                            <span className="text-red-500">₱310</span>
+                            <span className="text-red-500">₱{totalPrice.toFixed(2)}</span>
                         </div>
                     </div>
                 </div>

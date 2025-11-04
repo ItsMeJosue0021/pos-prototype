@@ -19,37 +19,20 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export const CartProvider = ({ children }: { children: ReactNode }) => {
     const [cart, setCart] = useState<CartItem[]>([]);
 
-    // const addToCart = (item: CartItem) => {
-    //     setCart((prev) => {
-    //         const existingItemIndex = prev.findIndex(
-    //             (i) => i.menu.id === item.menu.id
-    //         );
-
-    //         if (existingItemIndex !== -1) {
-    //             const updated = [...prev];
-    //             updated[existingItemIndex].quantity += item.quantity;
-    //             return updated;
-    //         }
-
-    //         return [...prev, item];
-    //     });
-    // };
-
     const addToCart = (item: CartItem) => {
         setCart((prev) => {
-            const existingItemIndex = prev.findIndex(
-            (i) => i.menu.id === item.menu.id
-            );
-
-            if (existingItemIndex !== -1) {
-            const updated = [...prev];
-            updated[existingItemIndex].quantity += 1; // Always increment by one
-            return updated;
+            const existingItem = prev.find(i => i.menu.id === item.menu.id);
+            if (existingItem) {
+                return prev.map(i =>
+                    i.menu.id === item.menu.id
+                        ? { ...i, quantity: i.quantity + 1 }
+                        : i
+                );
             }
-
-            return [...prev, { ...item, quantity: 1 }]; // Default quantity = 1
+            return [...prev, { ...item }];
         });
     };
+
 
     const removeFromCart = (menuId: string) => {
         setCart((prev) => prev.filter((i) => i.menu.id !== menuId));

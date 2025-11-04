@@ -58,8 +58,8 @@ const PointOfSaleHome = ({ openCart }: Props) => {
         return matchesSearch;
     });
 
-    const handleAddToCart = (item: CartItem) => {
-        addToCart(item);
+    const handleAddToCart = () => {
+        // addToCart(item);
         setSelectedItem(null); 
     };
 
@@ -73,7 +73,7 @@ const PointOfSaleHome = ({ openCart }: Props) => {
 
 
     return (
-        <div className="h-full flex flex-col bg-white">
+        <div className="h-full min-h-screen flex flex-col bg-white">
             <div className="shrink-0 space-y-2 p-4 ">
 
                 <div className="px-3 py-3 rounded-3xl bg-white flex items-center gap-2 border border-gray-300 shadow-muted 

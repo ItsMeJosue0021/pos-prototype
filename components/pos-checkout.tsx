@@ -1,5 +1,6 @@
 "use client";
 
+import { useCart } from "@/hooks/useCart";
 import { useState } from "react";
 import { FaCreditCard, FaMoneyBillWave, FaQrcode } from "react-icons/fa6";
 import { GoArrowLeft } from "react-icons/go";
@@ -10,15 +11,18 @@ type Props = {
 
 const PosCheckout = ({ setTab }: Props) => {
 
-  const [paymentMethod, setPaymentMethod] = useState("cash");
-  const [amountReceived, setAmountReceived] = useState("");
-  const total = 380; // Example total
-  const change = amountReceived ? Number(amountReceived) - total : 0;
+    const [paymentMethod, setPaymentMethod] = useState("cash");
+    const [amountReceived, setAmountReceived] = useState("");
+    const total = 380; // Example total
+    const change = amountReceived ? Number(amountReceived) - total : 0;
 
-  const cartItems = [
-    { name: "Takoyaki (Octopus)", qty: 2, price: 150 },
-    { name: "Ham and Cheese", qty: 1, price: 170 },
-  ];
+    const { cart, getTotalPrice } = useCart();
+    const totalPrice: number = getTotalPrice();
+
+    const cartItems = [
+      { name: "Takoyaki (Octopus)", qty: 2, price: 150 },
+      { name: "Ham and Cheese", qty: 1, price: 170 },
+    ];
 
   return (
     <div className="flex flex-col min-h-screen bg-white pt-12 md:pt-0">
@@ -42,16 +46,16 @@ const PosCheckout = ({ setTab }: Props) => {
         <div className="bg-white rounded-xl border-2 border-dashed border-gray-200 p-4">
           <h2 className="font-semibold text-gray-800 mb-3">Order Summary</h2>
           <div className="divide-y divide-gray-100">
-            {cartItems.map((item, i) => (
+            {cart.map((item, i) => (
               <div key={i} className="flex justify-between items-center py-2">
                 <div>
-                  <p className="font-medium text-gray-700">{item.name}</p>
+                  <p className="font-medium text-gray-700">{item.menu.name}</p>
                   <p className="text-sm text-gray-500">
-                    {item.qty} × ₱{item.price}
+                    {item.quantity} × ₱{item.menu.price.toFixed(2)}
                   </p>
                 </div>
                 <p className="text-sm font-semibold text-gray-800">
-                  ₱{item.qty * item.price}
+                  ₱{(item.quantity * item.menu.price).toFixed(2)}
                 </p>
               </div>
             ))}
@@ -59,7 +63,7 @@ const PosCheckout = ({ setTab }: Props) => {
 
           <div className="flex justify-between items-center mt-4 pt-3 border-t border-gray-200">
             <p className="font-semibold text-gray-700">Total</p>
-            <p className="text-sm font-bold text-red-500">₱{total}</p>
+            <p className="text-sm font-bold text-red-500">₱{totalPrice.toFixed(2)}</p>
           </div>
         </div>
 

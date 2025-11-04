@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Home() {
     return (
-      <div className="relative flex flex-col md:flex-row min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+      <div className="relative flex flex-col md:flex-row min-h-screen items-center justify-center bg-white font-sans dark:bg-black">
           <div className="w-full min-w-1/2 h-1/2 md:h-screen bg-red-700">
               {/* <div className="w-80 h-80 mb-16 bg-red-700 rounded-full flex items-center justify-center">
                   <img src="/images/yummyyes.png" alt="image" className="w-72 "/>
