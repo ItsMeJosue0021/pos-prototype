@@ -1,15 +1,19 @@
-import { MenuItem } from "@/types/menu";
+import { useCart } from "@/hooks/useCart";
+import { CartItem } from "@/types/cartItem";
+import { MenuItem } from "@/types/menuItem";
 import { CiCircleMinus, CiCirclePlus } from "react-icons/ci";
 import { FaRegTrashCan } from "react-icons/fa6";
 import { IoMdClose } from "react-icons/io";
 
 type Props = {
-    item: MenuItem;
+    item: any;
     index: number;
     isUsedInSidePanel?: boolean;
 }
 
 const MenuItemCard = ({item, index, isUsedInSidePanel}: Props) => {
+    
+    const { removeFromCart, updateQuantity } = useCart();
 
     const cardStyle = isUsedInSidePanel ? 
     "min-h-24 h-auto w-full p-2 pb-4 flex flex-col items-center bg-white dark:bg-gray-800 shadow-muted " 
@@ -18,14 +22,14 @@ const MenuItemCard = ({item, index, isUsedInSidePanel}: Props) => {
     return (
         <div key={index} className={cardStyle}>
             <div className="relative h-full w-full flex items-center gap-4">
-                <img src={item.image} alt="image" className="h-20 w-24 rounded-lg object-cover object-center" />
+                <img src={isUsedInSidePanel ? item.menu.image : item.image} alt="image" className="h-20 w-24 rounded-lg object-cover object-center" />
                 <div className="flex flex-col justify-start items-start">
-                    <h2 className="text- font-semibold text-gray-800 dark:text-gray-200">{item.name}</h2>
-                    <p className="text-xs text-gray-600 dark:text-gray-400">{item.description}</p>
-                    <p className="text-sm font-semibold text-red-500 mt-1">₱{item.price}</p>
+                    <h2 className="text- font-semibold text-gray-800 dark:text-gray-200">{isUsedInSidePanel ? item.menu.name : item.name}</h2>
+                    <p className="text-xs text-gray-600 dark:text-gray-400">{isUsedInSidePanel ? item.menu.description : item.description}</p>
+                    <p className="text-sm font-semibold text-red-500 mt-1">₱{isUsedInSidePanel ? item.menu.price : item.price}</p>
                 </div>
                 {isUsedInSidePanel && (
-                    <div className="absolute top-0 right-0">
+                    <div onClick={() => removeFromCart(item.menu.id)} className="absolute top-0 right-0">
                         <IoMdClose size={20} className="text-gray-300 hover:text-red-500" />
                     </div>
                 )}
@@ -45,9 +49,9 @@ const MenuItemCard = ({item, index, isUsedInSidePanel}: Props) => {
                     <div className="w-full">
                         <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Quantity:</p>
                         <div className="flex items-center justify-start gap-4">
-                            <CiCircleMinus size={30} className="text-gray-400 hover:text-red-500 transform transition-all duration-500"/>
-                            <p className="text-lg">1</p>
-                            <CiCirclePlus size={30} className="text-gray-400 hover:text-red-500 transform transition-all duration-500"/>
+                            <CiCircleMinus onClick={() => updateQuantity(item.menu.id, item.quantity-1)} size={30} className="text-gray-400 hover:text-red-500 transform transition-all duration-500"/>
+                            <p className="text-lg">{item.quantity}</p>
+                            <CiCirclePlus onClick={() => updateQuantity(item.menu.id, item.quantity+1)} size={30} className="text-gray-400 hover:text-red-500 transform transition-all duration-500"/>
                         </div>
                     </div>
                 </div>

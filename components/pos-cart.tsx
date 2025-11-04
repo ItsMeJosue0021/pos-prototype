@@ -1,6 +1,7 @@
 import { menuItems } from "@/data/menu";
 import MenuItemCard from "./menu-item-card";
 import { GoArrowLeft } from "react-icons/go";
+import { useCart } from "@/hooks/useCart";
 
 type Props = {
     backToMenu?: () => void;
@@ -8,6 +9,9 @@ type Props = {
 };
 
 const PosCart = ({ backToMenu, setTab }: Props) => {
+
+    const { cart, clearCart } = useCart();
+    
     return (
         <div className="h-full flex flex-col pt-16 md:pt-0">
             <div 
@@ -23,8 +27,13 @@ const PosCart = ({ backToMenu, setTab }: Props) => {
             <div>
                 <h1 className="font-semibold mb-2">Items</h1>
                 <div className="flex flex-col gap-2 pb-56 divide-y bg-green-40">
-                    {menuItems.slice(0, 4).map((item, index) => (
-                        <MenuItemCard key={index} item={item} index={index} isUsedInSidePanel={true} />
+                    {cart.map((item, index) => (
+                        <MenuItemCard 
+                            key={index} 
+                            item={item} 
+                            index={index} 
+                            isUsedInSidePanel={true} 
+                        />
                     ))}
                 </div>
             </div>

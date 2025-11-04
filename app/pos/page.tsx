@@ -12,7 +12,7 @@ const PointOfSale = () => {
 
     return (
         <div className="flex h-full w-full bg-white font-sans dark:bg-black  ">
-            <main className="w-full h-full flex items-start gap-4 ">
+            <main className="w-full h-full flex items-start">
                 {!isDesktop && (
                     <>
                         {!isSidePanelOpen ? (

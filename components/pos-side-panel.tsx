@@ -6,6 +6,7 @@ import { useState } from "react";
 import PosCart from "./pos-cart";
 import PosCheckout from "./pos-checkout";
 import PosReceipt from "./pos-receipt";
+import { useCart } from "@/hooks/useCart";
 
 type Props = {
     backToMenu?: () => void;
@@ -14,6 +15,10 @@ type Props = {
 const PosSidePanel = ({ backToMenu }: Props) => {
 
     const [tab, setTab] = useState<'cart' | 'checkout' | 'receipt'>('cart');
+
+    const { getTotalItems, getTotalPrice } = useCart();
+    const total: number = getTotalPrice();
+    const tax: number = getTotalPrice() * 0.03;
 
     return (
         <div className="fixed top-0 right-0 h-full w-full md:w-[380px] flex flex-col p-4 md:pt-20 bg-white border-l border-gray-200">
@@ -49,15 +54,15 @@ const PosSidePanel = ({ backToMenu }: Props) => {
                                     <h2 className="font-semibold text pb-1 border-b-2 border-dashed">Summary</h2>
                                     <div className="w-full flex items-center justify-between mt-1">
                                         <p className="text-sm font-medium text-gray-600 dark:text-gray-400">Subtotal:</p>
-                                        <p className="text-sm font-medium text-gray-500">₱1,230</p>
+                                        <p className="text-sm font-medium text-gray-500">₱{total.toFixed(2)}</p>
                                     </div>
                                     <div className="w-full flex items-center justify-between">
                                         <p className="text-sm font-medium text-gray-600 dark:text-gray-400">Tax:</p>
-                                        <p className="text-sm font-medium text-gray-500">₱4</p>
+                                        <p className="text-sm font-medium text-gray-500">₱{tax.toFixed(2)}</p>
                                     </div>
                                     <div className="w-full flex items-center justify-between">
                                         <p className="text-sm font-semibold text-gray-900 dark:text-gray-400">Total:</p>
-                                        <p className="text-sm font-semibold text-red-600">₱1,234</p>
+                                        <p className="text-sm font-semibold text-red-600">₱{(total + tax).toFixed(2)}</p>
                                     </div>
                                 </div>
                                 <button

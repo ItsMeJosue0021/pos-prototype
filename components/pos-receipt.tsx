@@ -1,5 +1,6 @@
 "use client";
 
+import { useCart } from "@/hooks/useCart";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { CheckCircle } from "lucide-react";
 import Link from "next/link";
@@ -16,6 +17,8 @@ const PosReceipt = ({ backToMenu, setTab }: Props) => {
     const handleDownload = () => {
         alert("Downloading receipt...");
     };
+
+    const { clearCart } = useCart();
 
     return (
         <div className="bg-white w-full h-full flex flex-col items-center justify-center py-8">
@@ -66,13 +69,16 @@ const PosReceipt = ({ backToMenu, setTab }: Props) => {
 
                     {isDesktop ? (
                         <div 
-                            onClick={() => setTab && setTab('cart')} 
+                            onClick={() => { 
+                                setTab && setTab('cart');
+                                clearCart();
+                            }} 
                             className="w-full text-center py-2 bg-red-600 text-white font-medium rounded-3xl hover:bg-red-700 transition cursor-pointer">
                             Done
                         </div>
                     ) : (
                         <div
-                            onClick={backToMenu}
+                            onClick={() => {backToMenu && backToMenu(); clearCart();}}
                             className="w-full text-center py-2 bg-red-600 text-white font-medium rounded-3xl hover:bg-red-700 transition cursor-pointer"
                         >
                             Start New Order
