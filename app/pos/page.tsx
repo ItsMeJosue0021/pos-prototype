@@ -11,7 +11,7 @@ const PointOfSale = () => {
     const isDesktop = useMediaQuery("(min-width: 768px)");
 
     return (
-        <div className="flex min-h-screen bg-zinc-50 font-sans dark:bg-black">
+        <div className="flex h-full w-full bg-white font-sans dark:bg-black  ">
             <main className="w-full h-full flex items-start gap-4 ">
                 {!isDesktop && (
                     <>

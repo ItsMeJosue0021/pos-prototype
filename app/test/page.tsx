@@ -4,8 +4,8 @@ import PosSidePanel from "@/components/pos-side-panel";
 
 const Test = () => {
     return (
-        <div>
-            <PosCheckout/>
+        <div className="w-full h-full items-center justify-center flex bg-red-200">
+            this is a test page
         </div>
     )
 }

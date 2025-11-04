@@ -21,11 +21,11 @@ const PosCheckout = ({ setTab }: Props) => {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen bg-white pt-12 md:pt-0">
       {/* HEADER */}
         <div 
             onClick={() => setTab && setTab('cart')} 
-            className="flex items-center justify-start gap-2 mt-4 px-3 pr-4 p-1 rounded-3xl bg-white border border-gray-400 w-fit">
+            className="flex items-center justify-start gap-2 mt-4 px-3 pr-4 p-1 rounded-3xl bg-white border border-gray-400 w-fit cursor-pointer">
             <GoArrowLeft   
                 size={22} 
                 className="text-gray-400 hover:text-gray-600" 
@@ -70,7 +70,7 @@ const PosCheckout = ({ setTab }: Props) => {
           <div className="grid grid-cols-3 gap-2">
             <button
               onClick={() => setPaymentMethod("cash")}
-              className={`flex flex-col items-center p-3 border rounded-lg ${
+              className={`flex flex-col items-center p-3 border rounded-lg cursor-pointer ${
                 paymentMethod === "cash"
                   ? "border-red-500 bg-red-50 text-red-600"
                   : "border-gray-200 text-gray-600"
@@ -82,7 +82,7 @@ const PosCheckout = ({ setTab }: Props) => {
 
             <button
               onClick={() => setPaymentMethod("gcash")}
-              className={`flex flex-col items-center p-3 border rounded-lg ${
+              className={`flex flex-col items-center p-3 border rounded-lg cursor-pointer ${
                 paymentMethod === "gcash"
                   ? "border-red-500 bg-red-50 text-red-600"
                   : "border-gray-200 text-gray-600"
@@ -132,14 +132,6 @@ const PosCheckout = ({ setTab }: Props) => {
           </div>
         )}
       </div>
-
-        <div className="fixed bottom-0 left-0 right-0 bg-zinc-50 p-4 flex flex-col gap-4 shadow-md ">
-            <button
-                onClick={() => setTab && setTab('receipt')} 
-                className="w-full text-sm bg-red-600 hover:bg-red-700 text-white font-semibold py-3 rounded-3xl transition-all duration-300 flex items-center justify-center gap-2">
-                Confirm Order
-            </button>
-        </div>
     </div>
   );
 };

@@ -15,8 +15,8 @@ type Props = {
 
 const PointOfSaleHome = ({ openCart }: Props) => {
     return (
-        <div className="h-screen flex flex-col">
-            <div className="shrink-0 space-y-2 px-4 py-2">
+        <div className="h-full flex flex-col">
+            <div className="shrink-0 space-y-2 p-4 ">
 
                 <div className="px-3 py-3 rounded-3xl bg-white flex items-center gap-2 border border-gray-200 shadow-muted 
                                 focus-within:border-red-500 focus-within:ring-red-200
@@ -47,7 +47,7 @@ const PointOfSaleHome = ({ openCart }: Props) => {
             </div>
 
             <h1 className="mb-2 px-4">Items</h1>
-            <div className="flex-1 overflow-y-auto px-4 pb-28 hide-scrollbar">
+            <div className="flex-1 overflow-y-auto px-4 ide-scrollbar">
                 <div className="flex flex-col md:flex-row flex-wrap space-y-2 md:space-0 md:gap-3 md:p-2">
                     {menuItems.map((item, index) => (
                         <MenuItemCard key={index} item={item} index={index} />
