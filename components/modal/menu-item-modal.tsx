@@ -28,7 +28,7 @@ const ItemModal = ({ item, onClose, onAddToCart }: Props) => {
 
     return (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-            <div className="bg-white rounded-xl p-6 max-w-sm w-full relative">
+            <div className="bg-white rounded-md md:rounded-xl p-6 max-w-sm w-full relative">
                 <div className="flex items-center justify-between mb-4">
                     <h1 className="font-bold">Item Details</h1>
                     <button
@@ -42,11 +42,11 @@ const ItemModal = ({ item, onClose, onAddToCart }: Props) => {
                 <img
                     src={item.image}
                     alt={item.name}
-                    className="rounded-lg mb-4 w-full h-40 object-cover"
+                    className="rounded-lg mb-2 w-full h-40 object-cover"
                 />
                 <h2 className="text-lg font-semibold">{item.name}</h2>
                 <p className="text-sm text-gray-600 mb-2">{item.description}</p>
-                <p className="text-lg font-bold mb-4">₱{item.price}</p>
+                <p className="text-lg font-bold mb-4 text-red-500">₱{item.price}</p>
                 
 
                 <div className="w-full flex items-center justify-between mt-2 mb-4">
@@ -71,7 +71,7 @@ const ItemModal = ({ item, onClose, onAddToCart }: Props) => {
 
                 <button
                     onClick={() => handleAddToCart()}
-                    className="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-3xl font-semibold transition-all duration-300"
+                    className="w-full bg-red-600 hover:bg-red-700 text-sm text-white py-3 rounded-3xl font-semibold transition-all duration-300"
                 >
                 Add to Cart
                 </button>

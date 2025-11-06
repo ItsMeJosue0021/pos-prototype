@@ -17,6 +17,7 @@ type CartContextType = {
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
+
     const [cart, setCart] = useState<CartItem[]>([]);
 
     const addToCart = (item: CartItem) => {
@@ -87,7 +88,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
     return (
         <CartContext.Provider value={value}>
-        {children}
+            {children}
         </CartContext.Provider>
     );
 };

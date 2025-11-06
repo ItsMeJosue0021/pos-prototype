@@ -25,7 +25,7 @@ const PosReceipt = ({ backToMenu, setTab }: Props) => {
 
     return (
         <div className="bg-white w-full h-full flex flex-col items-center justify-center py-8">
-            <div className="bg-white w-full max-w-sm rounded-2xl p-4 flex flex-col items-center">
+            <div className="bg-white w-full h-full max-w-sm rounded-2xl p-4 flex flex-col items-center">
                 <CheckCircle className="text-green-500 w-16 h-16 mb-3" />
                 <h2 className="text-xl font-semibold text-gray-800 mb-1">
                     Order Successful!
@@ -54,7 +54,7 @@ const PosReceipt = ({ backToMenu, setTab }: Props) => {
                         ))}
                         <div className="flex justify-between text-sm font-semibold border-t border-gray-200 mt-2 pt-2">
                             <span>Total</span>
-                            <span className="text-red-500">₱{totalPrice.toFixed(2)}</span>
+                            <span className="text-red-500">₱{(totalPrice * 1.03).toFixed(2)}</span>
                         </div>
                     </div>
                 </div>

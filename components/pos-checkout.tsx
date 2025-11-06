@@ -25,7 +25,7 @@ const PosCheckout = ({ setTab }: Props) => {
     ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-white pt-12 md:pt-0">
+    <div className="flex flex-col min-h-screen bg-white pt-12 md:pt-0 pb-20">
       {/* HEADER */}
         <div 
             onClick={() => setTab && setTab('cart')} 
@@ -63,7 +63,7 @@ const PosCheckout = ({ setTab }: Props) => {
 
           <div className="flex justify-between items-center mt-4 pt-3 border-t border-gray-200">
             <p className="font-semibold text-gray-700">Total</p>
-            <p className="text-sm font-bold text-red-500">₱{totalPrice.toFixed(2)}</p>
+            <p className="text-sm font-bold text-red-500">₱{(totalPrice  * 1.03).toFixed(2)}</p>
           </div>
         </div>
 

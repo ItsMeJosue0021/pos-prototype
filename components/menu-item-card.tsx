@@ -13,11 +13,15 @@ type Props = {
 
 const MenuItemCard = ({item, index, isUsedInSidePanel}: Props) => {
     
-    const { removeFromCart, updateQuantity } = useCart();
+    const { cart, removeFromCart, updateQuantity } = useCart()
+
+    // const itemExists = cart.some((cartItem) => cartItem.menu.id == item.id);
+
+    const itemExists = cart.find((cartItem) => cartItem.menu.id == item.id);
 
     const cardStyle = isUsedInSidePanel ? 
-    "min-h-24 h-auto w-full p-2 pb-4 flex flex-col items-center bg-white dark:bg-gray-800 shadow-muted " 
-    : "min-h-24 h-auto w-full md:w-72 rounded-xl p-2 flex flex-col items-center bg-white dark:bg-gray-800 shadow-muted cursor-pointer hover:bg-red-50 hover:shadow-lg border border-gray-200 hover:border-red-500 ring-2 ring-transparent hover:ring-red-200 transform transition-all duration-500";
+    "min-h-24 h-auto w-full p-2 pb-4 flex flex-col items-center bg-white dark:bg-gray-800 shadow-muted" 
+    : `relative min-h-24 h-auto w-full md:w-72 rounded-xl p-2 flex flex-col items-center ${itemExists ? 'bg-red-50 border border-red-300' : 'bg-white'} dark:bg-gray-800 shadow-muted cursor-pointer hover:bg-red-50 hover:shadow-lg border border-gray-200 hover:border-red-500 ring-2 ring-transparent hover:ring-red-200 transform transition-all duration-500`;
 
     return (
         <div key={index} className={cardStyle}>
@@ -53,6 +57,14 @@ const MenuItemCard = ({item, index, isUsedInSidePanel}: Props) => {
                             <p className="text-lg">{item.quantity}</p>
                             <CiCirclePlus onClick={() => updateQuantity(item.menu.id, item.quantity+1)} size={30} className="text-gray-400 hover:text-red-500 transform transition-all duration-500 cursor-pointer"/>
                         </div>
+                    </div>
+                </div>
+            )}
+
+            {itemExists && !isUsedInSidePanel && (
+                <div className="absolute top-0 right-4 h-full flex flex-col justify-center items-center gap-1">
+                    <div className="w-6 h-6 rounded-full bg-red-500 flex items-center justify-center">
+                        <p className="text-xs text-white">{itemExists.quantity}</p>
                     </div>
                 </div>
             )}
