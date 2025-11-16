@@ -25,7 +25,7 @@ const PosReceipt = ({ backToMenu, setTab }: Props) => {
 
     return (
         <div className="bg-white w-full h-full flex flex-col items-center justify-center py-8">
-            <div className="bg-white w-full h-full max-w-sm rounded-2xl p-4 flex flex-col items-center">
+            <div className="bg-white w-full h-full max-w-sm rounded-2xl p-4 flex flex-col items-center justify-center">
                 <CheckCircle className="text-green-500 w-16 h-16 mb-3" />
                 <h2 className="text-xl font-semibold text-gray-800 mb-1">
                     Order Successful!
