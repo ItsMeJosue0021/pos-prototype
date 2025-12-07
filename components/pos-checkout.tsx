@@ -63,7 +63,7 @@ const PosCheckout = ({ setTab }: Props) => {
 
           <div className="flex justify-between items-center mt-4 pt-3 border-t border-gray-200">
             <p className="font-semibold text-gray-700">Total</p>
-            <p className="text-sm font-bold text-red-500">₱{(totalPrice  * 1.03).toFixed(2)}</p>
+            <p className="text-sm font-bold text-blue-500">₱{(totalPrice  * 1.03).toFixed(2)}</p>
           </div>
         </div>
 
@@ -76,7 +76,7 @@ const PosCheckout = ({ setTab }: Props) => {
               onClick={() => setPaymentMethod("cash")}
               className={`flex flex-col items-center p-3 border rounded-lg cursor-pointer ${
                 paymentMethod === "cash"
-                  ? "border-red-500 bg-red-50 text-red-600"
+                  ? "border-blue-500 bg-blue-50 text-blue-600"
                   : "border-gray-200 text-gray-600"
               }`}
             >
@@ -88,7 +88,7 @@ const PosCheckout = ({ setTab }: Props) => {
               onClick={() => setPaymentMethod("gcash")}
               className={`flex flex-col items-center p-3 border rounded-lg cursor-pointer ${
                 paymentMethod === "gcash"
-                  ? "border-red-500 bg-red-50 text-red-600"
+                  ? "border-blue-500 bg-blue-50 text-blue-600"
                   : "border-gray-200 text-gray-600"
               }`}
             >
@@ -116,7 +116,7 @@ const PosCheckout = ({ setTab }: Props) => {
                   value={amountReceived}
                   onChange={(e) => setAmountReceived(e.target.value)}
                   placeholder="Enter amount"
-                  className="w-full px-4 py-2.5 md:py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-200 focus:border-red-500 outline-none text-sm"
+                  className="w-full px-4 py-2.5 md:py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-200 focus:border-blue-500 outline-none text-sm"
                 />
               </div>
 

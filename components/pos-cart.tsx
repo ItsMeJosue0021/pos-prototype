@@ -16,7 +16,7 @@ const PosCart = ({ backToMenu, setTab }: Props) => {
         <div className="h-full flex flex-col pt-16 md:pt-0">
             <div 
                 onClick={backToMenu} 
-                className="md:hidden flex items-center justify-start gap-2 mb-4 px-3 pr-4 p-1 rounded-3xl bg-red-600 w-fit">
+                className="md:hidden flex items-center justify-start gap-2 mb-4 px-3 pr-4 p-1 rounded-3xl bg-blue-700 w-fit">
                 <GoArrowLeft   
                     size={22} 
                     className="text-white" 

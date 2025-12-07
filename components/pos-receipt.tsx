@@ -54,7 +54,7 @@ const PosReceipt = ({ backToMenu, setTab }: Props) => {
                         ))}
                         <div className="flex justify-between text-sm font-semibold border-t border-gray-200 mt-2 pt-2">
                             <span>Total</span>
-                            <span className="text-red-500">₱{(totalPrice * 1.03).toFixed(2)}</span>
+                            <span className="text-blue-500">₱{(totalPrice * 1.03).toFixed(2)}</span>
                         </div>
                     </div>
                 </div>
@@ -74,13 +74,13 @@ const PosReceipt = ({ backToMenu, setTab }: Props) => {
                                 setTab && setTab('cart');
                                 clearCart();
                             }} 
-                            className="w-full text-center py-2 bg-red-600 text-white font-medium rounded-3xl hover:bg-red-700 transition cursor-pointer">
+                            className="w-full text-center py-2 bg-blue-700 text-white font-medium rounded-3xl hover:bg-blue-800 transition cursor-pointer">
                             Done
                         </div>
                     ) : (
                         <div
                             onClick={() => {backToMenu && backToMenu(); clearCart();}}
-                            className="w-full text-center py-2 bg-red-600 text-white font-medium rounded-3xl hover:bg-red-700 transition cursor-pointer"
+                            className="w-full text-center py-2 bg-blue-700 text-white font-medium rounded-3xl hover:bg-blue-800 transition cursor-pointer"
                         >
                             Start New Order
                         </div>

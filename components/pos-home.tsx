@@ -77,11 +77,11 @@ const PointOfSaleHome = ({ openCart }: Props) => {
             <div className="shrink-0 space-y-2 p-4 ">
 
                 <div className="px-3 py-3 rounded-3xl bg-white flex items-center gap-2 border border-gray-300 shadow-muted 
-                                focus-within:border-red-500 focus-within:ring-red-200
+                                focus-within:border-blue-500 focus-within:ring-blue-200
                                 transform transition-colors duration-500 ring-2 ring-transparent group">
                 <CiSearch
                     size={20}
-                    className="group-focus-within:text-red-600 transform transition-all duration-500 font-bold group-focus-within:stroke-1"
+                    className="group-focus-within:text-blue-500 transform transition-all duration-500 font-bold group-focus-within:stroke-1"
                 />
                 <input
                     type="text"
@@ -136,7 +136,7 @@ const PointOfSaleHome = ({ openCart }: Props) => {
             <div className="md:hidden fixed bottom-0 left-0 right-0 bg-transparent p-4  shadow-md">
                 <button 
                     onClick={openCart}
-                    className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-4 rounded-3xl transition-all duration-300 flex items-center justify-between">
+                    className="w-full bg-blue-700 hover:bg-blue-800 text-white font-semibold py-3 px-4 rounded-3xl transition-all duration-300 flex items-center justify-between">
                     <span className="text-sm">Proceed to Cart</span>
                     <div className="flex items-center gap-2">
                         {totalItems > 0 && (

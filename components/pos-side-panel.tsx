@@ -63,21 +63,21 @@ const PosSidePanel = ({ backToMenu }: Props) => {
                                         </div>
                                         <div className="w-full flex items-center justify-between">
                                             <p className="text-sm font-semibold text-gray-900 dark:text-gray-400">Total:</p>
-                                            <p className="text-sm font-semibold text-red-600">₱{(total + tax).toFixed(2)}</p>
+                                            <p className="text-sm font-semibold text-blue-600">₱{(total + tax).toFixed(2)}</p>
                                         </div>
                                     </div>
                                 )}
                                 <button
                                     disabled={cart.length === 0}
                                     onClick={() => setTab && setTab('checkout')} 
-                                    className={`w-full text-sm font-semibold py-3 rounded-3xl transition-all duration-300 flex items-center justify-center gap-2   ${cart.length === 0 ? 'cursor-not-allowed bg-gray-200 hover:bg-gray-300 text-gray-500' : 'text-white cursor-pointer bg-red-600 hover:bg-red-700'}`}>
+                                    className={`w-full text-sm font-semibold py-3 rounded-3xl transition-all duration-300 flex items-center justify-center gap-2   ${cart.length === 0 ? 'cursor-not-allowed bg-gray-200 hover:bg-gray-300 text-gray-500' : 'text-white cursor-pointer bg-blue-600 hover:bg-blue-700'}`}>
                                     Checkout
                                 </button>
                             </div>
                         ) : tab === 'checkout' ? (
                             <button
                                 onClick={() => setTab && setTab('receipt')} 
-                                className="w-full text-sm bg-red-600 hover:bg-red-700 text-white font-semibold py-3 rounded-3xl transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer">
+                                className="w-full text-sm bg-blue-700 hover:bg-blue-800 text-white font-semibold py-3 rounded-3xl transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer">
                                 Confirm Order
                             </button>
                         ) : tab === 'receipt' && null}
