@@ -9,7 +9,7 @@ type Props = {
 const CategoryCard = ({ icon, label, isActive }: Props) => {
     const styledIcon = React.cloneElement(icon, {
         className: `transform transition-colors duration-300 ${
-            isActive ? "text-blue-700" : "text-blue-600"
+            isActive ? "text-blue-700" : "text-gray-600"
         }`,
     });
 
@@ -20,14 +20,14 @@ const CategoryCard = ({ icon, label, isActive }: Props) => {
                 transform transition-colors duration-300 ring-2 
                 ${isActive
                     ? "bg-blue-50 border-blue-500 ring-blue-200"
-                    : "bg-white border-gray-200 hover:border-blue-500 hover:bg-blue-50 hover:ring-blue-200 ring-transparent"
+                    : "bg-white border-gray-200 hover:border-gray-300 hover:bg-gray-100 hover:ring-gray-200 ring-transparent"
                 }
             `}
         >
             <div
                 className={`
                     p-3 rounded-full transform transition-colors duration-300
-                    ${isActive ? "bg-blue-100" : "bg-blue-50 group-hover:bg-blue-100"}
+                    ${isActive ? "bg-blue-100" : "bg-gray-50 group-hover:bg-gray-100"}
                 `}
             >
                 {styledIcon}

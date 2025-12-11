@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PointOfSaleHome from "@/components/pos-home";
 import PosSidePanel from "@/components/pos-side-panel";
 import useMediaQuery from "@/hooks/useMediaQuery";
@@ -9,6 +9,14 @@ const PointOfSale = () => {
 
     const [isSidePanelOpen, setIsSidePanelOpen] = useState<boolean>(false);
     const isDesktop = useMediaQuery("(min-width: 768px)");
+
+    // useEffect(() => {
+    //     const prevOverflow = document.body.style.overflow;
+    //     document.body.style.overflow = "hidden";
+    //     return () => {
+    //         document.body.style.overflow = prevOverflow;
+    //     };
+    // }, []);
 
     return (
         <div className="flex h-full w-full bg-white font-sans dark:bg-black  ">

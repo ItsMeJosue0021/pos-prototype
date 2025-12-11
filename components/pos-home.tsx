@@ -74,7 +74,7 @@ const PointOfSaleHome = ({ openCart }: Props) => {
 
     return (
         <div className="h-full min-h-screen flex flex-col bg-white">
-            <div className="shrink-0 space-y-2 p-4 ">
+            <div className="shrink-0 space-y-2 p-4 mt-4">
 
                 <div className="px-3 py-3 rounded-3xl bg-white flex items-center gap-2 border border-gray-300 shadow-muted 
                                 focus-within:border-blue-500 focus-within:ring-blue-200

@@ -41,9 +41,17 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
     const updatePieces = (menuId: string, pieces: number) => {
         setCart((prev) =>
-            prev.map((item) =>
-                item.menu.id === menuId ? { ...item, pieces } : item
-            )
+            prev.map((item) => {
+                if (item.menu.id !== menuId) return item;
+                const priceOptions = (item.menu as any).priceOptions;
+                const newPrice =
+                    (priceOptions && priceOptions[pieces]) ?? item.menu.price;
+                return {
+                    ...item,
+                    pieces,
+                    menu: { ...item.menu, price: newPrice },
+                };
+            })
         );
     };
 
